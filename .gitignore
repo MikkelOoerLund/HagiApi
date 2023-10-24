@@ -9,7 +9,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-/HagiApi/HagiApi/appsettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
