@@ -3,6 +3,9 @@
 
 using HagiApi.Configuration;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 
 namespace HagiApi
 {
@@ -19,8 +22,15 @@ namespace HagiApi
 
             serviceCollection.AddSingleton(connectionStringContainer);
             serviceCollection.AddAutoMapper(typeof(UserMapper));
-            
 
+            serviceCollection
+               .AddControllers()
+               .AddNewtonsoftJson(options =>
+               {
+                   var serializerSettings = options.SerializerSettings;
+                   serializerSettings.ContractResolver = new DefaultContractResolver();
+                   serializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+               });
 
 
             serviceCollection.AddDbContext<UserContext>();

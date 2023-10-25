@@ -33,9 +33,14 @@ namespace HagiApi
             await DbSet.AddAsync(entity);
         }
 
+
+        public async Task SaveChangesAsync()
+        {
+            await DbContext.SaveChangesAsync();
+        }
+
         public void Dispose()
         {
-            DbContext.SaveChanges();
             DbContext.Dispose();
         }
     }

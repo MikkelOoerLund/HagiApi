@@ -7,7 +7,7 @@ namespace HagiApi
     {
         public UserMapper()
         {
-            CreateMap<UserAuthenticationDTO, User>();
+            CreateMap<AuthenticationDTO, User>();
         }
     }
 }

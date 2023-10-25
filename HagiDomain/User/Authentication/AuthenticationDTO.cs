@@ -1,9 +1,10 @@
 ﻿namespace HagiDomain
 {
-    public class UserAuthenticationDTO
+
+    public class AuthenticationDTO
     {
         public string? Salt { get; set; }
-        public string? UserName { get; set; }
+        public string? Username { get; set; }
         public string? HashPassword { get; set; }
     }
 }

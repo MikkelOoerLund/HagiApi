@@ -1,4 +1,5 @@
 ﻿using HagiDomain;
+using Microsoft.EntityFrameworkCore;
 
 namespace HagiApi
 {
@@ -8,6 +9,17 @@ namespace HagiApi
         {
         }
 
+
+        public async Task<User?> GetUserWithUsernameAsync(string userName)
+        {
+            return await DbSet.FirstOrDefaultAsync<User>(x => x.UserName == userName);
+        }
+
+
+        public async Task<bool> HasUserWithUsernameAsync(string userName)
+        {
+            return await DbSet.AnyAsync(x => x.UserName == userName);
+        }
 
     }
 
