@@ -36,7 +36,7 @@ namespace HagiApi
             {
                 var hasUser = await _userRepository.HasUserWithUsernameAsync(username);
 
-                if (hasUser == false) return BadRequest($"User with name: \"{username}\" was not found");
+                if (hasUser == false) return BadRequest($"User with name: {username} was not found");
 
 
                 var user = await _userRepository.GetUserWithUsernameAsync(username);
